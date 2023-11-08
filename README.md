@@ -13,8 +13,14 @@ TODO: As project evolves, add brief description of what is inside the data, doc 
 The following folders contain:
 
 - `data/`:
+    - README.md
+    - lipidomics.csv
+    - lipidomics.rda
 - `doc/`:
+    - README.md
+    - learning.qmd
 - `R/`:
+    - README.md
 
 # Installing project R package dependencies
 
