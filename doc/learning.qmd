@@ -29,5 +29,8 @@ knitr::opts_chunk$set(echo = TRUE)
     tingene
 -   Wrap 72 is visual mode
 
+If it is a part of the build, it will be joined as a package. A part of
+the workflow will be joined as a Suggestion.
+
 ```{r}
 ```
