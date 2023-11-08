@@ -12,12 +12,12 @@ Imports:
     rmarkdown,
     snakecase,
     stringr,
-    styler,
     tidyr,
     usethis
 Encoding: UTF-8
 Suggests: 
     gitcreds,
-    renv
+    renv,
+    styler
 URL: https://github.com/MaleneRevsbech/AdvancedR3
 BugReports: https://github.com/MaleneRevsbech/AdvancedR3/issues
