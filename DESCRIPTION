@@ -10,6 +10,8 @@ Imports:
     readr,
     readxl,
     rmarkdown,
+    snakecase,
+    stringr,
     tidyr,
     usethis
 Encoding: UTF-8
