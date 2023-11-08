@@ -1,7 +1,11 @@
 ---
 title: "Draft R Markdown document"
 author: "Your Name"
-output: html_document
+format: html
+editor:
+    markdown:
+        wrap: 72
+        canonical: true
 ---
 
 ```{r setup, include=FALSE}
@@ -12,3 +16,18 @@ knitr::opts_chunk$set(echo = TRUE)
 # Code chunk
 ```
 
+## This is poorly formatted
+
+-   This is item 1
+-   This is item 2
+
+# List of notes
+
+-   Her vil R selv formattere, så hvis der ikke er mellemrum nok vil R
+    selv indføre det pga ting vi indsatte i headeren (canonical: true)
+-   Generelt vil R med dette canocicla sørge for det er mellemrum mellem
+    tingene
+-   Wrap 72 is visual mode
+
+```{r}
+```
