@@ -59,6 +59,15 @@ recipe_specs <- lipidomics_wide %>%
 recipe_specs
 ```
 
+```{r}
+workflow() %>% 
+    add_model(log_reg_specs) %>% 
+    add_recipe(recipe_specs)
+
+model_workflow <- create_model_workflow(log_reg_specs, recipe_specs)
+model_workflow
+```
+
 #---------------------------
 
 # Mal Own notes
