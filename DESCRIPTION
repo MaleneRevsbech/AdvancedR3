@@ -9,16 +9,19 @@ Imports:
     glue,
     here,
     knitr,
+    parsnip,
     quarto,
     readr,
     readxl,
+    recipes,
     rmarkdown,
     snakecase,
     stringr,
     tarchetypes,
     targets,
     tidyr,
-    usethis
+    usethis,
+    workflows
 Encoding: UTF-8
 Suggests: 
     gitcreds,
@@ -27,4 +30,5 @@ Suggests:
 URL: https://github.com/MaleneRevsbech/AdvancedR3
 BugReports: https://github.com/MaleneRevsbech/AdvancedR3/issues
 Depends: 
+    tidymodels,
     tidyverse
