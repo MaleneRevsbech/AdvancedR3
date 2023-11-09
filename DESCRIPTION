@@ -17,6 +17,7 @@ Imports:
     rmarkdown,
     snakecase,
     stringr,
+    styler,
     tarchetypes,
     targets,
     tidyr,
@@ -25,8 +26,7 @@ Imports:
 Encoding: UTF-8
 Suggests: 
     gitcreds,
-    renv,
-    styler
+    renv
 URL: https://github.com/MaleneRevsbech/AdvancedR3
 BugReports: https://github.com/MaleneRevsbech/AdvancedR3/issues
 Depends: 
