@@ -9,17 +9,26 @@ editor:
 ---
 
 ```{r setup}
+targets::tar_config_set(store = here::here("_targets"))
 library(tidyverse)
-source(here::here("R/functions.R"))
-lipidomics <- read_csv(here::here("data/lipidomics.csv"))
+library(targets)
+lipidomics <- targets::tar_read(lipidomics)
 ```
 
-## Basic statistics
+## Results
 
-```{r basic-stats}
-descriptive_stats(lipidomics)
-
+```{r}
+targets::tar_read(df_stats_by_metabolite) %>% 
+    mutate(MeanSD = glue::glue("{value_mean} ({value_sd})")) %>% 
+    select(Metabolite = metabolite, `Mean SD`= MeanSD) %>% 
+    knitr::kable(caption = "Descriptive Statistics of the metabolites")
 ```
+
+```{r}
+targets::tar_read(fig_metabolite_distribution)
+```
+
+#---------------------------
 
 # Mal Own notes
 
@@ -43,5 +52,9 @@ If things does not work, try renv::install()
 
 .libPaths() = tjek om du er i dit projekt, vi vil gerne være i renv
 
-```{r}
-```
+# Comands for targets
+
+-   targets::tar_make() \<- incorporating into pipeline
+-   targets::tar_visnetwork()
+-   targets::tar_outdated()
+-   targets::tar_read()
