@@ -32,5 +32,9 @@ knitr::opts_chunk$set(echo = TRUE)
 If it is a part of the build, it will be joined as a package. A part of
 the workflow will be joined as a Suggestion.
 
+If things does not work, try renv::install()
+
+.libPaths() = tjek om du er i dit projekt, vi vil gerne være i renv
+
 ```{r}
 ```
