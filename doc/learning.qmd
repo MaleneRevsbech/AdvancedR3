@@ -1,6 +1,9 @@
 ---
 title: "Draft R Markdown document"
-author: "Your Name"
+author:
+    - name: Malene Revsbech Christiansen
+      affiliations:
+        - name: CBMR KU
 format: html
 editor:
     markdown:
