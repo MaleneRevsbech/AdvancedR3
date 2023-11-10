@@ -1,5 +1,5 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
-.Random.seed|object|aaf4f6e37d2dd236|||||||||||||||
+.Random.seed|object|6e18e848e7dc5c5a|||||||||||||||
 add_original_metabolite_names|function|b2d0a2b2077da937|||||||||||||||
 calculate_estimates|function|a4db553294bcc782|||||||||||||||
 column_values_to_snake_case|function|074e817e19db405b|||||||||||||||
@@ -10,12 +10,13 @@ df_model_estimates|stem|a74d60886f43edcd|c54121e4cf891739|73014fd221793f7b|69475
 df_stats_by_metabolite|stem|e14dfa63df29811c|06bc50c38cf95e77|ad8e9784c096644d|1571712024||t19670.3763784772s|a0252f4d8dc0f410|403|rds|local|vector|||0.323||
 fig_metabolite_distribution|stem|b91c8340ba475a6d|fab028a148ebe7e6|e73d2aea83bfe5cf|1263992679||t19670.424626054s|cd499cae61559d66|84219|rds|local|vector|||0.016||
 fig_model_estimates|stem|dbae6eb901777439|16a1b6385d9d61a3|a9cc952805368f51|1462996731||t19671.4199209139s|ba788cd66d393bbe|54155|rds|local|vector|||0.014||
-file|stem|301125be9d4645ea|41619bbc02c4928d|ef46db3751d8e999|-1301001980|/Users/mgl825/Desktop/AdvancedR3/data/lipidomics.csv|t19669.4352387156s|6f631a918b070454|24313|file|local|vector|||0.089||
+file|stem|301125be9d4645ea|41619bbc02c4928d|ef46db3751d8e999|-1301001980|/Users/mgl825/Desktop/AdvancedR3/data/lipidomics.csv|t19671.53384247s|6f631a918b070454|24313|file|local|vector|||0.089||
 generate_model_results|function|6a9305f91da0e052|||||||||||||||
 lipidomics|stem|697f42c227e4228b|7940706ee8ea8eb8|74cf55e34db4cd4e|-1170387675||t19670.3892378158s|30e7dd23cf8c9239|4884|rds|local|vector|||0.468||
 metabolites_to_wider|function|8eff1105ed5e7f18|||||||||||||||
 plot_distributions|function|aebcf9cf68177742|||||||||||||||
 plot_estimates|function|e710467c98dca542|||||||||||||||
 quarto_doc|stem|5b8e2630a1f7c3ac|f1a0bb1da39a6725|a088ab603462c384|1886859688|doc/learning.html*doc/learning.qmd|t19671.4294860706s|e4632c1bad8ce061|26595|file|local|vector|||18.739||
+quarto_wbesite|stem|33637c3969a99714|bb2f27cb396394e6|a088ab603462c384|447013476|_site*doc/learning.qmd*index.qmd*TODO.md*_quarto.yml|t19671.5363382118s|fbdc47a4e136b3f2|1019836|file|local|vector|||7.397||
 split_by_metabolite|function|a2e9ee2dd226dea7|||||||||||||||
 tidy_model_output|function|4ff0d9127acce476|||||||||||||||

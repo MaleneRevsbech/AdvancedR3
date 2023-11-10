@@ -149,6 +149,12 @@ use_git_ignore("\_site")
 
 alrt med "\_" foran ignorerer target
 
+Nårm du skal lave en hjemmeside, kør da quarto publish gh-pages i
+terminalen
+
+hvis ikke kan andre ikke rigtig set det, så er det blot filer på din
+computer
+
 # Mal Own notes
 
 -   recipes is transformations
