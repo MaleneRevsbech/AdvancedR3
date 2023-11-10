@@ -1,19 +1,5 @@
 [
   {
-    "objectID": "TODO.html",
-    "href": "TODO.html",
-    "title": "Lipidomics analysis",
-    "section": "",
-    "text": "Some TODO items after creating this project. Can delete this file after completing them."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Lipidomics study",
-    "section": "",
-    "text": "Lipidomics study"
-  },
-  {
     "objectID": "doc/learning.html",
     "href": "doc/learning.html",
     "title": "Draft R Markdown document",
@@ -33,5 +19,19 @@
     "title": "Draft R Markdown document",
     "section": "Results",
     "text": "Results\n\nFigure of model estimates"
+  },
+  {
+    "objectID": "TODO.html",
+    "href": "TODO.html",
+    "title": "Lipidomics analysis",
+    "section": "",
+    "text": "Some TODO items after creating this project. Can delete this file after completing them."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Lipidomics study",
+    "section": "",
+    "text": "Lipidomics study"
   }
 ]
