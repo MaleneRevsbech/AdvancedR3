@@ -8,6 +8,8 @@ This project is about learning R in a more collaborative way.
 
 # Brief description of folder and file contents
 
+Hey, check out the project's [website](https://malenerevsbech.github.io/AdvancedR3/).
+
 TODO: As project evolves, add brief description of what is inside the data, doc and R folders.
 
 The following folders contain:
