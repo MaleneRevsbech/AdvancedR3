@@ -55,11 +55,9 @@ lipidomics %>%
 ### Figure of model estimates
 
 ```{r}
-model_estimates <- tar_read("df_model_estimates")
+model_estimates <- tar_read(df_model_estimates)
 
-plot_estimates <- model_estimates %>% 
-    ggplot(
-        aes()
-    )
-
+#Both these will call the plot, and it can be rednered with both 
+#plot_estimates(model_estimates)
+tar_read(fig_model_estimates)
 ```

@@ -169,3 +169,22 @@ calculate_estimates <- function(data) {
     dplyr::filter(stringr::str_detect(term, "metabolite_")) %>%
     add_original_metabolite_names(data)
 }
+
+
+#' A function thst plots estimates from the model results and scales results
+#'
+#' @param results The model estiamtes data frame.
+#'
+#' @return A ggplot with scaled axes-
+#'
+plot_estimates <- function(results) {
+  results %>%
+    ggplot2::ggplot(ggplot2::aes(
+      x = estimate,
+      y = metabolite,
+      xmin = estimate - std.error,
+      xmax = estimate + std.error
+    )) +
+    ggplot2::geom_pointrange() +
+    ggplot2::coord_fixed(xlim = c(0, 5))
+}
