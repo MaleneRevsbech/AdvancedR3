@@ -152,3 +152,20 @@ add_original_metabolite_names <- function(model_results, data) {
     dplyr::distinct(term, metabolite) %>%
     dplyr::right_join(model_results, by = "term")
 }
+
+#' Making a function that takes original data set and produces the final table.
+#'
+#' @param data The Lipidomics data set
+#'
+#' @return The final results for each metabolite, with good table names
+#'
+calculate_estimates <- function(data) {
+  data %>%
+    column_values_to_snake_case(metabolite) %>%
+    dplyr::group_split(metabolite) %>%
+    purrr::map(metabolites_to_wider) %>%
+    purrr::map(generate_model_results) %>%
+    purrr::list_rbind() %>%
+    dplyr::filter(stringr::str_detect(term, "metabolite_")) %>%
+    add_original_metabolite_names(data)
+}
