@@ -155,6 +155,10 @@ terminalen
 hvis ikke kan andre ikke rigtig set det, så er det blot filer på din
 computer
 
+on github webpage, go to code -\> in "about", click settings -\> on the
+websit, tick the "use your github pages webpage" and then you have it!
+:D husk lisences!
+
 # Mal Own notes
 
 -   recipes is transformations
