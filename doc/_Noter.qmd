@@ -147,6 +147,8 @@ calculate_estimates(lipidomics)
 
 use_git_ignore("\_site")
 
+alrt med "\_" foran ignorerer target
+
 # Mal Own notes
 
 -   recipes is transformations
