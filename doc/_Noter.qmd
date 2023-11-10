@@ -1,0 +1,191 @@
+---
+title: "Draft R Markdown document"
+author: "Your Name"
+format: html
+editor:
+    markdown:
+        wrap: 72
+        canonical: true
+---
+
+```{r}
+targets::tar_config_set(store = here::here("_targets"))
+library(tidyverse)
+library(targets)
+library(tidymodels)
+source(here::here("R/functions.R"))
+lipidomics <- targets::tar_read(lipidomics)
+```
+
+```{r}
+targets::tar_read(df_stats_by_metabolite) %>%
+  mutate(MeanSD = glue::glue("{value_mean} ({value_sd})")) %>%
+  select(Metabolite = metabolite, `Mean SD` = MeanSD) %>%
+  knitr::kable(caption = "Descriptive Statistics of the metabolites")
+
+
+```
+
+```{r}
+targets::tar_read(fig_metabolite_distribution)
+# Sådan læser man Target objecterne 
+
+```
+
+#Building the model
+
+### HERFRA ER DET SUPER GODT!
+
+```{r}
+log_reg_specs <- logistic_reg() %>%
+  set_engine("glm")
+log_reg_specs
+
+lipidomics_wide <- lipidomics %>%
+  column_values_to_snake_case(., metabolite) %>%
+  metabolites_to_wider()
+```
+
+```{r}
+recipe(class ~ metabolite_lipid_ch_3_1 + age + gender, data = lipidomics_wide)
+```
+
+```{r}
+recipe(lipidomics_wide) %>%
+  update_role(metabolite_lipid_ch_3_1, age, gender, new_role = "predictor") %>%
+  update_role(class, new_role = "outcome") %>%
+  step_normalize(starts_with("metabolite_"))
+```
+
+```{r}
+recipe_specs <- lipidomics_wide %>%
+  create_recipe_spec(metabolite_lipid_ch_3_1)
+recipe_specs
+```
+
+```{r}
+workflow() %>%
+  add_model(log_reg_specs) %>%
+  add_recipe(recipe_specs)
+
+model_workflow <- create_model_workflow(log_reg_specs, recipe_specs)
+model_workflow
+
+model_workflow <- create_model_workflow(
+  logistic_reg() %>%
+    set_engine("glm"),
+  lipidomics_wide %>%
+    create_recipe_spec(metabolite_lipid_ch_3_1)
+)
+model_workflow
+
+fitted_model <- model_workflow %>%
+  fit(lipidomics_wide)
+fitted_model
+
+# Without the exponentiate
+fitted_model %>%
+  extract_fit_parsnip() %>%
+  broom::tidy()
+
+# Getting exponentiated data
+fitted_model %>%
+  tidy_model_output()
+
+
+# The full thing!
+
+create_model_workflow(
+  logistic_reg() %>% set_engine("glm"),
+  lipidomics_wide %>%
+    create_recipe_spec(metabolite_lipid_ch_3_1)
+) %>%
+  fit(lipidomics_wide) %>%
+  tidy_model_output()
+```
+
+## Running multiple models
+
+```{r}
+lipidomics %>%
+  split_by_metabolite()
+```
+
+```{r}
+#Split, map, combine!
+model_estimates <- lipidomics %>%
+    split_by_metabolite() %>% 
+    purrr::map(generate_model_results) %>% 
+    purrr::list_rbind() %>% 
+    filter(stringr::str_detect(term, "metabolite_"))
+#PS modellen er class, t1d. 
+
+```
+
+```{r}
+#Just to get the normal lipid names 
+lipidomics %>% 
+    select(metabolite) %>% 
+    mutate(term = metabolite) %>% 
+    column_values_to_snake_case(term) %>% 
+    mutate(term = str_c("metabolite_", term)) %>% 
+    distinct(term, metabolite) %>% 
+    right_join(model_estimates, by = "term")
+
+
+add_original_metabolite_names(model_results = model_estimates, data = lipidomics)
+
+
+calculate_estimates(lipidomics)
+
+        
+```
+
+#---------------------------
+
+# Sådan her gør du filerne IKKE gemmes i git
+
+use_git_ignore("\_site")
+
+# Mal Own notes
+
+-   recipes is transformations
+-   engine is model
+
+## This is poorly formatted
+
+-   This is item 1
+-   This is item 2
+
+# List of notes
+
+-   Her vil R selv formattere, så hvis der ikke er mellemrum nok vil R
+    selv indføre det pga ting vi indsatte i headeren (canonical: true)
+-   Generelt vil R med dette canocicla sørge for det er mellemrum mellem
+    tingene
+-   Wrap 72 is visual mode
+
+If it is a part of the build, it will be joined as a package. A part of
+the workflow will be joined as a Suggestion.
+
+If things does not work, try renv::install()
+
+.libPaths() = tjek om du er i dit projekt, vi vil gerne være i renv
+
+# Comands for targets
+
+-   targets::tar_make() \<- incorporating into pipeline
+-   targets::tar_visnetwork()
+-   targets::tar_outdated()
+-   targets::tar_read()
+-   styler:::style_active_file()
+
+## Website
+
+-   two spaces refer to a tab
+
+knitr: opts_chunk: echo: false #her betyder det at dette dokument vælger
+ALt output, intet kode vises
+
+Hvis du skriver echo: true vil hver enkelt code chunbk bestemme om der
+er kode med eller ej
