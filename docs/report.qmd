@@ -1,0 +1,20 @@
+---
+title: "Draft Quarto document"
+author: "Your Name"
+format: html
+---
+
+## Header 1
+
+```{r}
+#| label: setup
+#| include: false
+
+library(tidyverse)
+```
+
+Can write normal text here.
+
+```{r}
+# Code chunk
+```
